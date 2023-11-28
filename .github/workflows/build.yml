@@ -19,6 +19,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: mvaisakh/gcc-arm64
+        ref: 05cb20a52f12389c3f2340b5103485108feae302
         path: toolchain
 
     - name: Android kernel build
