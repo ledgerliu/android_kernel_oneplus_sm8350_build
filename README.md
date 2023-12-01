@@ -6,6 +6,7 @@ https://github.com/awakened1712/android_kernel_oneplus_sm8350_build/actions
 - Backport upstream Multi-gen LRU to optimize page reclaim and performance under memory pressure
 - Backport entire RCU subsystem to Linux 6.0
 - Lazy RCU which should result in power-savings while the device is lightly-loaded or idling
+- Backport EEVDF Scheduler (Earliest Eligible Virtual Deadline First) in favor of CFS
 - Disable unused touchscreen and keyboard drivers
 - Disable tracing, statistics and various debugs
 - Use power efficient workqueues
