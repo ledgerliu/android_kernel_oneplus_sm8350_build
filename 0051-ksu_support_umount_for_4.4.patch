@@ -74,20 +74,6 @@ from wxt1221 tiann/KernelSU pr #1060
  #endif
  }
  
---- a/kernel/cgroup.c	2023-11-20 15:28:32.714838581 +0800
-+++ b/kernel/cgroup.c	2023-11-20 20:36:57.870828011 +0800
-@@ -3845,7 +3845,10 @@
- 		cfile->kn = kn;
- 		spin_unlock_irq(&cgroup_file_kn_lock);
- 	}
--
-+	if (cft->ss && (cgrp->root->flags & CGRP_ROOT_NOPREFIX) && !(cft->flags & CFTYPE_NO_PREFIX)) {
-+				snprintf(name, CGROUP_FILE_NAME_MAX, "%s.%s", cft->ss->name, cft->name);
-+				kernfs_create_link(cgrp->kn, name, kn);
-+	}
- 	return 0;
- }
- 
 --- a/fs/namespace.c	2023-11-20 15:28:32.482832195 +0800
 +++ b/fs/namespace.c	2023-11-20 20:36:43.762452629 +0800
 @@ -797,7 +797,7 @@
