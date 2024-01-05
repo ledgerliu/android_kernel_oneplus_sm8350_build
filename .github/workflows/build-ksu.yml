@@ -34,6 +34,7 @@ jobs:
         git submodule add https://github.com/tiann/KernelSU.git
         git apply ../patches/ksu.patch
         git submodule update --init --recursive
+        git apply ../patches/0051-ksu_support_umount_for_4.4.patch
 
     - name: Android kernel build
       run: |
